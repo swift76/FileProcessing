@@ -1,4 +1,4 @@
-﻿using CashPilot.FileProcessing;
+﻿using FileProcessing;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Concurrent;
 using System.Globalization;
@@ -6,7 +6,7 @@ using System.Globalization;
 internal class Program
 {
     private static BlockingCollection<string> queue = new(int.MaxValue);
-    
+
     private static Settings? appSettings;
 
     static async Task Main()
@@ -22,11 +22,11 @@ internal class Program
 
             //Checking the values of the settings
             CheckDirectorySetting(appSettings.InputDirectory, "Input directory", false);
-            
+
             CheckDirectorySetting(appSettings.ArchiveDirectory, "Archive directory", true);
-            
+
             CheckDirectorySetting(appSettings.ErrorDirectory, "Error directory", true);
-            
+
             if (string.IsNullOrWhiteSpace(appSettings.InputFileMask))
             {
                 throw new ApplicationException($"File mask is not specified");

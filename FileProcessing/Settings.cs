@@ -1,4 +1,4 @@
-﻿namespace CashPilot.FileProcessing
+﻿namespace FileProcessing
 {
     /// <summary>
     /// To deserialize and use the application's settings
